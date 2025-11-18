@@ -1,3 +1,5 @@
+```powershell
+@"
 # 🏋️‍♂️ P-Gym - Plataforma de Gestión de Gimnasio
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -31,37 +33,52 @@ Plataforma web moderna para la gestión de gimnasios que permite a los usuarios 
 ### Instalación
 
 1. Clona el repositorio
-   ```bash
-   git clone [https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git](https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git)
+   \`\`\`bash
+   git clone https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git
    cd P-Gym
-Instala las dependencias
-bash
-npm install
-# o
-yarn
-Inicia el servidor de desarrollo
-bash
-npm run dev
-# o
-yarn dev
-Abre http://localhost:5173 en tu navegador
-📂 Estructura del Proyecto
+   \`\`\`
+
+2. Instala las dependencias
+   \`\`\`bash
+   npm install
+   # o
+   yarn
+   \`\`\`
+
+3. Inicia el servidor de desarrollo
+   \`\`\`bash
+   npm run dev
+   # o
+   yarn dev
+   \`\`\`
+
+4. Abre [http://localhost:5173](http://localhost:5173) en tu navegador
+
+## 📂 Estructura del Proyecto
+
+\`\`\`
 src/
 ├── components/     # Componentes reutilizables
 ├── contexts/       # Contextos de React
 ├── data/           # Datos iniciales
 ├── pages/          # Componentes de página
 └── styles/         # Estilos CSS
-🤝 Contribución
-Las contribuciones son bienvenidas. Por favor, lee las pautas de contribución antes de enviar un pull request.
+\`\`\`
 
-📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+## 🤝 Contribución
 
-✉️ Contacto
-Franco Goslino - @tuusuario
+Las contribuciones son bienvenidas. Por favor, lee las [pautas de contribución](CONTRIBUTING.md) antes de enviar un pull request.
 
-Enlace al proyecto: https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+
+## ✉️ Contacto
+
+Franco Goslino - [@FrancoGoslino]
+
+Enlace al proyecto: [https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios](https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios)
+"@ | Out-File -FilePath .\README.md -Encoding utf8
 
 # React + Vite
 
