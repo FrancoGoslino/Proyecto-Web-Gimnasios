@@ -1,0 +1,184 @@
+.Maquinas-page {
+  padding: 5rem;
+}
+
+:root{
+  --card-bg-dark: linear-gradient(180deg, rgba(10,11,13,0.95), rgba(18,18,20,0.95));
+  --card-fg-dark: #e6eef6;
+  --muted-dark: rgba(230,238,246,0.62);
+  --accent-dark: #ff6b35;
+  --glass-dark: rgba(255,255,255,0.03);
+  --shadow-dark: 0 14px 36px rgba(0,0,0,0.6);
+  --radius: 14px;
+}
+
+ 
+.machine-card-alt-dark {
+  background: var(--card-bg-dark);
+  color: var(--card-fg-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--shadow-dark);
+  transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+  display:flex;
+  flex-direction:column;
+  min-height: 360px;
+}
+ 
+.machine-card-alt-dark:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 26px 56px rgba(0,0,0,0.72);
+}
+
+ 
+.card-img-wrapper-alt-dark{
+  position: relative;
+  width:100%;
+  height:190px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+ 
+.machine-img-alt-dark{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform-origin:center;
+  transition: transform .35s ease, filter .25s ease;
+  filter: contrast(0.98) saturate(0.95) brightness(0.9);
+}
+ 
+.card-img-caption-dark {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+  padding: 8px 10px;
+  background: linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.32));
+  border-radius: 10px;
+  color: var(--card-fg-dark);
+  font-size: 0.86rem;
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+}
+
+ .machine-placeholder-alt-dark{
+  width:100%;
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: repeating-linear-gradient(45deg, rgba(255,255,255,0.01) 0 6px, rgba(255,255,255,0.00) 6px 12px);
+  color: rgba(230,238,246,0.22);
+  flex-direction:column;
+  gap:6px;
+  font-weight:600;
+}
+
+ .machine-card-alt-dark .card-body{
+  padding: 16px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  flex:1 1 auto;
+}
+
+ .machine-card-alt-dark .machine-title {
+  font-size: 1.05rem;
+  font-weight:700;
+  margin:0;
+  color: var(--card-fg-dark);
+}
+
+.machine-card-alt-dark .machine-sub {
+  font-size:0.88rem;
+  color: var(--muted-dark);
+}
+
+ .badge-pill-dark {
+  display:inline-block;
+  padding:6px 10px;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:600;
+  color:#0b0c0e;
+  background: linear-gradient(90deg, var(--accent-dark), #ff4a1a);
+  box-shadow: 0 6px 18px rgba(255,107,53,0.12);
+}
+
+ .machine-meta-list-dark {
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-top:6px;
+}
+
+.machine-meta-list-dark .meta-item {
+  background: rgba(255,255,255,0.02);
+  color: var(--muted-dark);
+  padding:6px 8px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+}
+ 
+.machine-card-alt-dark .card-footer {
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:8px;
+  background: transparent;
+}
+ 
+.btn-primary-alt-dark {
+  background: linear-gradient(90deg, rgba(255,107,53,1), rgba(255,74,26,1));
+  border:none;
+  color:#fff;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:700;
+  box-shadow: 0 8px 20px rgba(255,107,53,0.12);
+}
+
+.machine-card-alt-dark:hover .machine-img-alt-dark {
+  transform: scale(1.06);
+  filter: contrast(1.03) saturate(1.05) brightness(0.98);
+}
+ 
+.machine-card-alt-dark[data-cat="Fuerza"] { border-left: 4px solid #ff6b35; }
+.machine-card-alt-dark[data-cat="Cardio"] { border-left: 4px solid #29b6f6; }
+.machine-card-alt-dark[data-cat="Aislamiento"] { border-left: 4px solid #ab47bc; }
+.machine-card-alt-dark[data-cat="Funcional"] { border-left: 4px solid #66bb6a; }
+ 
+.machine-card-alt-dark:hover {
+  box-shadow: 0 20px 40px rgba(255,107,53,0.12);
+}
+ 
+.machine-badges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.machine-badge {
+  background: rgba(255,255,255,0.06);
+  color: #e6eef6;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 768px){
+  .machine-card-alt-dark { min-height: 320px; }
+  .card-img-wrapper-alt-dark { height: 150px; }
+}

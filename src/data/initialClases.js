@@ -1,0 +1,247 @@
+export default [
+    {
+      ID: 1,
+      nombre: 'Spinning',
+      categoria: 'Cardio',
+      descripcion: 'Clase de spinning de alta intensidad en bicicleta estática.',
+      horario: 'Martes, Jueves - 6:00 PM',
+      instructor: 'Carlos López',
+      capacidad: 20,
+      inscritos: 18,
+      duracion: '45 min',
+      estaInscrito: false
+    },
+    {
+      ID: 2,
+      nombre: 'Zumba',
+      categoria: 'Cardio',
+      descripcion: 'Baile y cardio al ritmo de la música latina.',
+      horario: 'Sábado - 10:00 AM',
+      instructor: 'Juan Rodríguez',
+      capacidad: 25,
+      inscritos: 24,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 3,
+      nombre: 'CrossFit',
+      categoria: 'Cardio',
+      descripcion: 'Entrenamiento funcional de alto rendimiento.',
+      horario: 'Martes, Jueves, Sábado - 7:00 PM',
+      instructor: 'Pedro González',
+      capacidad: 16,
+      inscritos: 16,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 4,
+      nombre: 'HIIT - High Intensity Interval Training',
+      categoria: 'Cardio',
+      descripcion: 'Entrenamiento de intervalos de alta intensidad.',
+      horario: 'Lunes, Miércoles, Viernes - 6:30 PM',
+      instructor: 'Laura Sánchez',
+      capacidad: 18,
+      inscritos: 16,
+      duracion: '45 min',
+      estaInscrito: false
+    },
+    // Flexibilidad y Relajación
+    {
+      ID: 5,
+      nombre: 'Yoga Matutino',
+      categoria: 'Flexibilidad',
+      descripcion: 'Clase de yoga relajante para comenzar el día con energía.',
+      horario: 'Lunes, Miércoles, Viernes - 7:00 AM',
+      instructor: 'María García',
+      capacidad: 15,
+      inscritos: 12,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 6,
+      nombre: 'Yoga Vinyasa',
+      categoria: 'Flexibilidad',
+      descripcion: 'Yoga dinámico con transiciones fluidas entre posturas.',
+      horario: 'Martes, Jueves - 5:00 PM',
+      instructor: 'Sofia Ruiz',
+      capacidad: 14,
+      inscritos: 10,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 7,
+      nombre: 'Pilates',
+      categoria: 'Flexibilidad',
+      descripcion: 'Fortalecimiento y flexibilidad con pilates clásico.',
+      horario: 'Lunes, Miércoles - 5:30 PM',
+      instructor: 'Ana Martínez',
+      capacidad: 12,
+      inscritos: 10,
+      duracion: '50 min',
+      estaInscrito: false
+    },
+    {
+      ID: 8,
+      nombre: 'Pilates Reformer',
+      categoria: 'Flexibilidad',
+      descripcion: 'Pilates con máquinas reformer para trabajar profundidad.',
+      horario: 'Martes, Jueves - 4:00 PM',
+      instructor: 'Ana Martínez',
+      capacidad: 8,
+      inscritos: 8,
+      duracion: '55 min',
+      estaInscrito: false
+    },
+    // Fuerza
+    {
+      ID: 9,
+      nombre: 'Pesas - Principiantes',
+      categoria: 'Fuerza',
+      descripcion: 'Introducción a levantamiento de pesas con técnica correcta.',
+      horario: 'Lunes, Miércoles, Viernes - 5:00 PM',
+      instructor: 'Roberto Silva',
+      capacidad: 10,
+      inscritos: 8,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 10,
+      nombre: 'Pesas - Avanzado',
+      categoria: 'Fuerza',
+      descripcion: 'Levantamiento de pesas para usuarios con experiencia.',
+      horario: 'Martes, Jueves, Sábado - 6:00 PM',
+      instructor: 'Roberto Silva',
+      capacidad: 12,
+      inscritos: 11,
+      duracion: '90 min',
+      estaInscrito: false
+    },
+    {
+      ID: 11,
+      nombre: 'Bootcamp',
+      categoria: 'Fuerza',
+      descripcion: 'Entrenamiento militar de fuerza y resistencia.',
+      horario: 'Lunes, Miércoles - 6:00 PM',
+      instructor: 'Diego Torres',
+      capacidad: 20,
+      inscritos: 19,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 12,
+      nombre: 'TRX Suspension',
+      categoria: 'Fuerza',
+      descripcion: 'Entrenamiento con correas TRX usando peso corporal.',
+      horario: 'Viernes - 5:30 PM, Domingo - 9:00 AM',
+      instructor: 'Marcela Reyes',
+      capacidad: 15,
+      inscritos: 15,
+      duracion: '50 min',
+      estaInscrito: false
+    },
+    // Danza y Ritmo
+    {
+      ID: 13,
+      nombre: 'Danza Contemporánea',
+      categoria: 'Danza',
+      descripcion: 'Expresión corporal a través de la danza contemporánea.',
+      horario: 'Miércoles - 7:00 PM',
+      instructor: 'Valentina López',
+      capacidad: 18,
+      inscritos: 18,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 14,
+      nombre: 'Salsa',
+      categoria: 'Danza',
+      descripcion: 'Aprende a bailar salsa con pareja.',
+      horario: 'Viernes - 7:00 PM',
+      instructor: 'Carlos Mendoza',
+      capacidad: 20,
+      inscritos: 20,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 15,
+      nombre: 'Reggaeton',
+      categoria: 'Danza',
+      descripcion: 'Ritmo y movimiento al estilo reggaeton.',
+      horario: 'Sábado - 6:00 PM',
+      instructor: 'Javier Cruz',
+      capacidad: 25,
+      inscritos: 25,
+      duracion: '50 min',
+      estaInscrito: false
+    },
+    // Deportes
+    {
+      ID: 16,
+      nombre: 'Boxeo',
+      categoria: 'Deportes',
+      descripcion: 'Técnicas de boxeo y trabajo de mitones.',
+      horario: 'Lunes, Miércoles, Viernes - 6:30 PM',
+      instructor: 'Miguel Ángel Ruiz',
+      capacidad: 12,
+      inscritos: 11,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 17,
+      nombre: 'Kick Boxing',
+      categoria: 'Deportes',
+      descripcion: 'Combinación de boxeo y patadas en ritmo.',
+      horario: 'Martes, Jueves - 7:30 PM',
+      instructor: 'Miguel Ángel Ruiz',
+      capacidad: 15,
+      inscritos: 14,
+      duracion: '60 min',
+      estaInscrito: false
+    },
+    {
+      ID: 18,
+      nombre: 'Muay Thai',
+      categoria: 'Deportes',
+      descripcion: 'Arte marcial tailandés - el arte de los ocho miembros.',
+      horario: 'Sábado - 11:00 AM',
+      instructor: 'Ernesto Díaz',
+      capacidad: 14,
+      inscritos: 12,
+      duracion: '75 min',
+      estaInscrito: false
+    },
+    // Bienestar
+    {
+      ID: 19,
+      nombre: 'Meditación',
+      categoria: 'Bienestar',
+      descripcion: 'Técnicas de meditación para reducir estrés.',
+      horario: 'Domingo - 10:00 AM',
+      instructor: 'Cristina Vega',
+      capacidad: 20,
+      inscritos: 16,
+      duracion: '45 min',
+      estaInscrito: false
+    },
+    {
+      ID: 20,
+      nombre: 'Stretching',
+      categoria: 'Bienestar',
+      descripcion: 'Estiramientos profundos para relajación muscular.',
+      horario: 'Todos los días - 7:30 PM',
+      instructor: 'Patricia Núñez',
+      capacidad: 22,
+      inscritos: 20,
+      duracion: '30 min',
+      estaInscrito: false
+    }
+  ];

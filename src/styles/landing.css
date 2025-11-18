@@ -1,0 +1,337 @@
+
+
+                                                /* Secciones */
+.landing-section {
+  padding: 5rem 1rem;
+  position: relative;
+  overflow: hidden;
+}
+:root {
+  --accent: #29b6f6;
+  --bg-dark: #0b0c0e;
+  --text-light: #f5f5f5;
+  --muted: rgba(255,255,255,0.6);
+  --radius: 14px;
+  --shadow: 0 12px 28px rgba(0,0,0,0.4);
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #fff;
+  animation: fadeUp 2.8s ease-out;
+}
+
+
+                                                /* BENEFICIOS */
+.beneficios-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.beneficio-card {
+  position: relative;
+  height: 320px;
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  animation: fadeUp 1s ease-out;
+  transition: transform 0.3s ease;
+}
+
+.beneficio-card:hover {
+  transform: scale(1.04);
+}
+
+.beneficio-card .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+}
+
+.beneficio-card .icon {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2.5rem;
+  z-index: 2;
+}
+
+.beneficio-card .text {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  right: 1rem;
+  z-index: 2;
+}
+
+.beneficio-card .text h4 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.beneficio-card .text p {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+
+                                                        /* HORARIOS */
+.horarios-grid-v2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.horario-card {
+  background: rgba(255,255,255,0.03);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 320px;
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.horario-card:hover {
+  transform: scale(1.03);
+}
+
+.horario-icon {
+  font-size: 2rem;
+  color: var(--accent);
+}
+
+.horario-text strong {
+  display: block;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.horario-text span {
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+ 
+.horario-card.dia {
+  border-left: 4px solid #29b6f6;
+}
+
+.horario-card.sabado {
+  border-left: 4px solid #66bb6a;
+}
+
+.horario-card.cerrado {
+  border-left: 4px solid #ff6b6b;
+  background: rgba(255, 80, 80, 0.08);
+}
+
+
+                                            /* ANIMACIONES */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+                                        /* PLANES HORIZONTALES */
+.planes-horizontal-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;   
+}
+
+ .plan-horizontal {
+  display: grid;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.08);
+ 
+}
+
+.plan-horizontal:hover {
+  transform: scale(1.015);
+}
+
+.plan-info {
+  flex: 0 0 220px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #000000;
+}
+
+.plan-info h4 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;}
+
+.plan-info .precio {
+  font-weight: 800;
+  font-size: clamp(1rem, 2.6vw, 1.4rem);
+  color: #000000;
+  background: rgba(215, 179, 179, 0.089);
+  white-space: nowrap;
+}
+
+/* Colores por plan */
+.plan-horizontal.standard .plan-info {
+ background: linear-gradient(90deg,#9fe6e6,#5bd3d3); color: #041018;}
+
+.plan-horizontal.standard-plus .plan-info {
+     background: linear-gradient(90deg,#7be2ff,#1d9eee); color: #021528; }
+
+.plan-horizontal.premium .plan-info {
+background: linear-gradient(90deg,#ffb3d6,#ff7ab0); color: #14020a;}
+
+.plan-horizontal.gold .plan-info {
+ background: linear-gradient(90deg,#f6d365,#fda085);  color: #0b0c0e;
+}
+
+.plan-detalle {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.plan-detalle ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.plan-detalle ul li {
+  margin-bottom: 0.4rem;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+
+
+.plan-detalle .btn {
+  align-self: flex;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: 6px;
+}
+
+.plan-horizontal.gold {
+  box-shadow: 0 0 24px rgba(255, 200, 80, 0.361), 0 0 8px rgba(255, 200, 80, 0.3);
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+
+.check-icon {
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transition: transform 0.3s ease;
+}
+
+li:hover .check-icon {
+  transform: scale(1.2);
+}
+
+/* Colores por plan para tildes*/
+.check-icon.standard {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%235bd3d3' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.193-4.242-4.243a1 1 0 0 0-1.415 1.415l5 5a1 1 0 0 0 1.414 0l10-10z'/%3E%3C/svg%3E");
+}
+
+.check-icon.standard-plus {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%231d9eee' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.193-4.242-4.243a1 1 0 0 0-1.415 1.415l5 5a1 1 0 0 0 1.414 0l10-10z'/%3E%3C/svg%3E");
+}
+
+.check-icon.premium {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23ff7ab0' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.193-4.242-4.243a1 1 0 0 0-1.415 1.415l5 5a1 1 0 0 0 1.414 0l10-10z'/%3E%3C/svg%3E");
+}
+
+.check-icon.gold {
+  background-image: url("data:image/svg+xml,%3Csvg fill='%23f4a742' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20.285 6.709a1 1 0 0 0-1.414-1.418l-9.192 9.193-4.242-4.243a1 1 0 0 0-1.415 1.415l5 5a1 1 0 0 0 1.414 0l10-10z'/%3E%3C/svg%3E");
+}
+
+
+/********************************************/
+
+.mapa-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  align-items: start;
+  background: rgba(255,255,255,0.02);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sede-lista {
+  display: grid;
+  gap: 1rem;
+}
+
+.sede-card {
+  background: rgba(255,255,255,0.04);
+  padding: 1rem 1.2rem;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.sede-card:hover {
+  transform: scale(1.03);
+}
+
+.sede-card h4 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.1rem;
+}
+
+.sede-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.mapa-frame {
+  width: 100%;
+  height: 370px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+}
+
+@media (max-width: 768px) {
+  .mapa-grid {
+    grid-template-columns: 1fr;
+  }
+  .mapa-frame {
+    height: 250px;
+  }
+}
