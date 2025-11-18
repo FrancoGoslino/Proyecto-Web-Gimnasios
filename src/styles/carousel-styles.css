@@ -1,0 +1,580 @@
+/* Estilos para el carrusel principal */
+.hero-carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  background: #000;
+}
+
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+  height: 100%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.hero-carousel .carousel-item > div {
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: transform 0.6s ease-in-out;
+}
+
+/* Efecto de zoom sutil en hover */
+.hero-carousel .carousel-item.active > div {
+  transform: scale(1.05);
+}
+
+/* Contenedor de la tarjeta */
+.carousel-caption-custom {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  width: 90% !important;
+  max-width: 1000px !important;
+  text-align: center !important;
+  padding: 2rem !important;
+  z-index: 10 !important;
+  margin: 0 !important;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-out forwards;
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateY(0);
+  }
+}
+
+/* Tarjeta */
+.carousel-card {
+  background: rgba(0, 0, 0, 0.4) !important;
+  -webkit-backdrop-filter: blur(8px) saturate(160%);
+  backdrop-filter: blur(8px) saturate(160%);
+  border-radius: 20px !important;
+  max-width: 800px !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+  color: white !important;
+  position: relative !important;
+  z-index: 10 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3) !important;
+  padding: 3rem 2rem !important;
+  transform: translateY(20px);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  opacity: 0;
+  animation: slideUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes slideUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título */
+.carousel-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 0 1.5rem 0;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  background: linear-gradient(90deg, #fff, #4facfe, #00f2fe);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradient 8s linear infinite;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.4);
+  line-height: 1.2;
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Descripción */
+.carousel-description {
+  font-size: 1.3rem;
+  margin: 0 auto 2.5rem;
+  max-width: 700px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 400;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  position: relative;
+  z-index: 2;
+}
+
+/* Contenedor de botones */
+.carousel-buttons {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+/* Estilos base para los botones */
+.carousel-buttons .btn {
+  border-radius: 50px;
+  padding: 0.9rem 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  font-size: 0.95rem;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Botón primario */
+.carousel-buttons .btn-primary {
+  background: linear-gradient(45deg, #4facfe, #00f2fe);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.carousel-buttons .btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(45deg, #00f2fe, #4facfe);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+  opacity: 0;
+}
+
+.carousel-buttons .btn-primary:hover::before {
+  width: 100%;
+  opacity: 1;
+}
+
+.carousel-buttons .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(79, 172, 254, 0.5);
+}
+
+.carousel-buttons .btn-primary:active {
+  transform: translateY(-1px);
+}
+
+/* Botón secundario */
+.carousel-buttons .btn-outline-light {
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.carousel-buttons .btn-outline-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.carousel-buttons .btn-outline-light:hover {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.1);
+}
+
+.carousel-buttons .btn-outline-light:hover::before {
+  width: 100%;
+}
+
+/* Efecto de superposición sutil */
+.hero-carousel .carousel-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  pointer-events: none; /* Permite que los eventos del ratón pasen a través */
+}
+
+/* Indicadores del carrusel */
+.hero-carousel .carousel-indicators {
+  bottom: 30px;
+  z-index: 15;
+}
+
+.hero-carousel .carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.hero-carousel .carousel-indicators button.active {
+  background-color: #4facfe;
+  transform: scale(1.2);
+}
+
+/* Controles de navegación */
+.hero-carousel .carousel-control-prev,
+.hero-carousel .carousel-control-next {
+  width: 10%;
+  z-index: 15;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hero-carousel:hover .carousel-control-prev,
+.hero-carousel:hover .carousel-control-next {
+  opacity: 1;
+}
+
+.hero-carousel .carousel-control-prev-icon,
+.hero-carousel .carousel-control-next-icon {
+  width: 3rem;
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.hero-carousel .carousel-control-prev-icon:hover,
+.hero-carousel .carousel-control-next-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* Efecto de borde sutil en la tarjeta */
+.carousel-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2), rgba(79, 172, 254, 0.4));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .carousel-title {
+    font-size: 3rem;
+  }
+  
+  .carousel-description {
+    font-size: 1.2rem;
+    max-width: 90%;
+  }
+  
+  .carousel-card {
+    padding: 2.5rem 1.5rem !important;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-carousel {
+    min-height: 600px;
+  }
+  
+  .carousel-title {
+    font-size: 2.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .carousel-description {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .carousel-buttons .btn {
+    padding: 0.8rem 2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-carousel {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .carousel-card {
+    padding: 2rem 1.5rem !important;
+    max-width: 90% !important;
+  }
+  
+  .carousel-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-description {
+    font-size: 1rem;
+    margin-bottom: 1.8rem;
+  }
+  
+  .carousel-buttons {
+    gap: 1rem;
+  }
+  
+  .carousel-buttons .btn {
+    padding: 0.7rem 1.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .hero-carousel .carousel-indicators {
+    bottom: 15px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-carousel {
+    min-height: 100vh;
+  }
+  
+  .carousel-card {
+    padding: 2rem 1.25rem !important;
+    max-width: 95% !important;
+  }
+  
+  .carousel-title {
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+  }
+  
+  .carousel-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .carousel-buttons {
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+  }
+  
+  .carousel-buttons .btn {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+  }
+  
+  .hero-carousel .carousel-control-prev,
+  .hero-carousel .carousel-control-next {
+    display: none;
+  }
+}
+
+
+/* Estilos para la tarjeta de información del carrusel */
+.carousel-info-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.414);
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  padding: 1.5rem 1.5rem;
+  max-width: 500px;
+  width: 50%;
+  z-index: 1000; /* Aumentado significativamente */
+  color: white;
+  text-align: center;
+  pointer-events: auto; /* Asegura que los eventos del ratón funcionen */
+}
+
+.carousel-info-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.39);
+}
+
+.carousel-info-text {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.carousel-info-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 1001; /* Mayor que el de la tarjeta */
+  pointer-events: auto; /* Asegura que los botones sean clickeables */
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .carousel-info-card {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+  
+  .carousel-info-title {
+    font-size: 2rem;
+  }
+  
+  .carousel-info-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-info-card {
+    padding: 1.5rem 1.25rem;
+  }
+  
+  .carousel-info-title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .carousel-info-text {
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .carousel-info-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .carousel-info-buttons .btn {
+    width: 100%;
+    margin: 0;
+  }
+}
+
+
+/* Estilos para los botones de la tarjeta de información */
+.carousel-info-buttons .btn {
+  padding: 0.7rem 1.8rem;
+  border-radius: 50px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo para el botón primario */
+.carousel-info-buttons .btn-primary {
+  background: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+  border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-info-buttons .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(79, 172, 254, 0.4);
+}
+
+/* Estilo para el botón outline */
+.carousel-info-buttons .btn-outline-light {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.carousel-info-buttons .btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Efecto hover para ambos botones */
+.carousel-info-buttons .btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.5s, height 0.5s;
+}
+
+.carousel-info-buttons .btn:hover::after {
+  width: 300px;
+  height: 300px;
+  opacity: 0;
+}
+
+/* Ajustes responsivos para los botones */
+@media (max-width: 768px) {
+  .carousel-info-buttons .btn {
+    padding: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .carousel-info-buttons .btn {
+    width: 100%;
+    margin: 0.25rem 0;
+  }
+  
+  .carousel-info-buttons .btn-outline-light {
+    margin-top: 0.5rem;
+  }
+}

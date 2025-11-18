@@ -1,5 +1,10 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { FaDumbbell, FaRunning, FaUserFriends, FaChartLine, FaCheck, FaArrowRight } from 'react-icons/fa';
+import { useCallback } from 'react';
+import { Particles } from '@tsparticles/react';
+import { loadSlim } from '@tsparticles/slim';
 
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
@@ -8,6 +13,7 @@ import ExampleCarouselImage from '@components/ExampleCarouselImage';
 import ScrollToTop from '../ScrollTop';
 
 import '../styles/landing.css';
+import '../styles/carousel-styles.css';
 
 export default function Inicio() {
   const slides = [
@@ -16,7 +22,7 @@ export default function Inicio() {
       title: 'SUCURSAL CENTRAL',
       caption: '¡Visítanos en nuestra sucursal principal!',
       boton_1: { text: 'Empezar por $19.900', to: '/planes' },
-      boton_2: { text: 'Planes disponibles', to: '/planes' },
+      boton_2: { text: 'Ver planes', to: '/planes' },
       img: 'https://images.unsplash.com/photo-1571902943202-507ec2618e8f?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8Z3ltfGVufDB8fDB8fHww'
     },
     {
@@ -40,153 +46,376 @@ export default function Inicio() {
   const [index, setIndex] = useState(0);
   const handleSelect = (selectedIndex) => setIndex(selectedIndex);
 
+   useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fade-in');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const particlesInit = useCallback(async (engine) => {
+    await loadSlim(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+    await console.log(container);
+  }, []);
+
+  const particlesOptions = {
+    fpsLimit: 120,
+    interactivity: {
+      events: {
+        onClick: {
+          enable: true,
+          mode: "push",
+        },
+        onHover: {
+          enable: true,
+          mode: "grab",
+        },
+      },
+      modes: {
+        push: {
+          quantity: 4,
+        },
+        grab: {
+          distance: 140,
+          links: {
+            opacity: 0.5,
+          },
+        },
+      },
+    },
+    particles: {
+      color: {
+        value: "#ffffff",
+      },
+      links: {
+        color: "#4facfe",
+        distance: 150,
+        enable: true,
+        opacity: 0.4,
+        width: 1,
+      },
+      move: {
+        direction: "none",
+        enable: true,
+        outModes: {
+          default: "bounce",
+        },
+        random: false,
+        speed: 1,
+        straight: false,
+      },
+      number: {
+        density: {
+          enable: true,
+          area: 800,
+        },
+        value: 80,
+      },
+      opacity: {
+        value: 0.5,
+        animation: {
+          enable: true,
+          speed: 1,
+          minimumValue: 0.1,
+          sync: false
+        },
+        random: true
+      },
+      shape: {
+        type: "circle",
+      },
+      size: {
+        value: { min: 1, max: 3 },
+        animation: {
+          enable: true,
+          speed: 2,
+          minimumValue: 0.1,
+          sync: false
+        },
+        random: true
+      },
+    },
+    detectRetina: true,
+  };
+
   return (
-    <><ScrollToTop />
+    <div className="main-content">
+      <ScrollToTop />
+      <Particles
+        id="tsparticles"
+        init={particlesInit}
+        loaded={particlesLoaded}
+        options={particlesOptions}
+        className="particles"
+      />
+
+      <div className="position-relative">
+        // ... (código anterior)
+
       <Carousel 
         fade 
         activeIndex={index} 
         onSelect={handleSelect} 
-        interval={4000} 
+        interval={5000} 
         pause="hover" 
         controls 
         indicators
         className="hero-carousel"
       >
         {slides.map(s => (
-          <Carousel.Item key={s.id}>
-            <ExampleCarouselImage src={s.img} alt={s.title} />
-            <Carousel.Caption className="carousel-caption-custom">
-              <h3 style={{ color: '#ffffff', textShadow: '2px 2px 4px rgba(0,0,0,0.7)' }}>{s.title}</h3>
-              <p style={{ color: '#ffffff', textShadow: '1px 1px 3px rgba(0,0,0,0.7)' }}>{s.caption}</p>
-
-              <div className="d-flex justify-content-center gap-2 mt-3">
-                <Button as={Link} to={s.boton_1.to} variant="primary">
-                  {s.boton_1.text}
-                </Button>
-                <Button as={Link} to={s.boton_2.to} variant="outline-light">
-                  {s.boton_2.text}
-                </Button>
+          <Carousel.Item key={s.id} style={{ height: '90vh', minHeight: '600px' }}>
+            <div 
+              className="w-100 h-100" 
+              style={{
+                backgroundImage: `url(${s.img})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                position: 'relative'
+              }}
+            >
+              <div className="carousel-info-card">
+                <h2 className="carousel-info-title">{s.title}</h2>
+                <p className="carousel-info-text">{s.caption}</p>
+                <div className="carousel-info-buttons">
+                  <Button 
+                    as={Link} 
+                    to={s.boton_1.to} 
+                    className="btn-primary"
+                  >
+                    {s.boton_1.text}
+                  </Button>
+                  <Button 
+                    as={Link} 
+                    to={s.boton_2.to} 
+                    className="btn-outline-light ms-2"
+                  >
+                    {s.boton_2.text}
+                  </Button>
+                </div>
               </div>
-            </Carousel.Caption>
+            </div>
           </Carousel.Item>
         ))}
       </Carousel>
-      
-      <section className="landing-section beneficios">
-        <h2 className="section-title">¿Por qué elegir P.Gym?</h2>
-        <div className="beneficios-grid-v2">
-          <div className="beneficio-card" style={{ backgroundImage: 'url(https://aquasportsgrancanaria.com/wp-content/uploads/hiit-o-entrenamiento-intervalico-de-alta-intensidad.jpg)' }}>
-            <div className="overlay" />
-            <div className="icon">1</div>
-            <div className="text">
-              <h4>Entrenamiento libre</h4>
-              <p>Acceso total a máquinas, zona funcional y cardio sin límites.</p>
-            </div>
+      </div>
+
+      <section className="landing-section beneficios animate-on-scroll">
+        <Container>
+          <motion.h2 
+            className="section-title glow-text"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            ¿Por qué elegir <span style={{ color: '#4facfe' }}>P.Gym</span>?
+          </motion.h2>
+          
+          <div className="beneficios-grid-v2">
+            <motion.div 
+              className="beneficio-card" 
+              style={{ backgroundImage: 'url(https://aquasportsgrancanaria.com/wp-content/uploads/hiit-o-entrenamiento-intervalico-de-alta-intensidad.jpg)' }}
+              whileHover={{ scale: 1.03 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="overlay" />
+              <div className="icon">
+                <FaDumbbell />
+              </div>
+              <div className="text">
+                <h4>Entrenamiento Libre</h4>
+                <p>Acceso ilimitado a nuestra amplia gama de equipos de última generación, zona funcional y área de cardio.</p>
+                <Button variant="outline-light" size="sm" className="mt-2">
+                  Ver instalaciones <FaArrowRight className="ms-1" />
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="beneficio-card" 
+              style={{ backgroundImage: 'url(https://crunch.com/wp-content/uploads/2023/09/CR011SLTH_The-Hub_09.01.232-800x584.jpg)' }}
+              whileHover={{ scale: 1.03 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="overlay" />
+              <div className="icon">
+                <FaRunning />
+              </div>
+              <div className="text">
+                <h4>Clases Guiadas</h4>
+                <p>Más de 20 clases semanales con instructores certificados. Desde HIIT hasta yoga, tenemos algo para todos.</p>
+                <Button variant="outline-light" size="sm" className="mt-2">
+                  Ver clases <FaArrowRight className="ms-1" />
+                </Button>
+              </div>
+            </motion.div>
+
+            <motion.div 
+              className="beneficio-card" 
+              style={{ backgroundImage: 'url(https://media.istockphoto.com/id/1849345050/es/foto/instructora-personal-y-mujer-atl%C3%A9tica-que-realiza-planes-de-ejercicios-en-un-gimnasio.jpg?s=612x612&w=0&k=20&c=y1b0zh5MJUeaaP-ySNh6XsE8TPFd5ysUG9f8SxtUg6I=)' }}
+              whileHover={{ scale: 1.03 }}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <div className="overlay" />
+              <div className="icon">
+                <FaUserFriends />
+              </div>
+              <div className="text">
+                <h4>Entrenamiento Personalizado</h4>
+                <p>Planes de entrenamiento personalizados con nuestros entrenadores expertos para alcanzar tus metas más rápido.</p>
+                <Button variant="outline-light" size="sm" className="mt-2">
+                  Conoce más <FaArrowRight className="ms-1" />
+                </Button>
+              </div>
+            </motion.div>
           </div>
-          <div className="beneficio-card" style={{ backgroundImage: 'url(https://crunch.com/wp-content/uploads/2023/09/CR011SLTH_The-Hub_09.01.232-800x584.jpg)' }}>
-            <div className="overlay" />
-            <div className="icon">2</div>
-            <div className="text">
-              <h4>Clases guiadas</h4>
-              <p>Más de 20 clases semanales con instructores certificados.</p>
-            </div>
-          </div>
-          <div className="beneficio-card" style={{ backgroundImage: 'url(https://media.istockphoto.com/id/1849345050/es/foto/instructora-personal-y-mujer-atl%C3%A9tica-que-realiza-planes-de-ejercicios-en-un-gimnasio.jpg?s=612x612&w=0&k=20&c=y1b0zh5MJUeaaP-ySNh6XsE8TPFd5ysUG9f8SxtUg6I=)' }}>
-            <div className="overlay" />
-            <div className="icon">3</div>
-            <div className="text">
-              <h4>Personal Trainer</h4>
-              <p>Los mejores profesionales a tu disposición.</p>
-            </div>
-          </div>
-        </div>
+        </Container>
       </section>
           
-      <section className="landing-section planes-horizontal">
-        <h2 className="section-title">Elegí tu plan</h2>
-        <div className="planes-horizontal-grid">
-          <div className="plan-horizontal standard">
-            <div className="plan-info">
-              <h4>Standard</h4>
-              <div className="precio">$19.900 / mes</div>
-            </div>
-            <div className="plan-detalle">
-              <ul>
-                <li><span className="check-icon standard" />Acceso a máquinas libre</li>
-                <li><span className="check-icon standard" />Vestuarios y lockers</li>
-                <li><span className="check-icon standard" />1 clase grupal semanal</li>
-                <li><span className="check-icon standard" />Wi-Fi en sala</li>
-              </ul>
-              <Button as={Link} to="/planes" variant="primary" size="sm">
-                Suscribirse
-              </Button>
-            </div>
-          </div>
+      {/* Sección de Planes */}
+      <section className="landing-section planes-horizontal animate-on-scroll">
+        <Container>
+          <motion.h2 
+            className="section-title mb-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+          >
+            Elige tu <span style={{ color: '#4facfe' }}>Plan Ideal</span>
+          </motion.h2>
+          
+          <div className="planes-horizontal-grid">
+            <motion.div 
+              className="plan-horizontal standard"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="plan-info">
+                <h4>Standard</h4>
+                <div className="precio">$19.900 <span className="periodo">/mes</span></div>
+                <small className="text-muted">Ideal para empezar</small>
+              </div>
+              <div className="plan-detalle">
+                <ul>
+                  <li><span className="check-icon standard" /><span>Acceso ilimitado a máquinas</span></li>
+                  <li><span className="check-icon standard" /><span>Vestuarios y lockers</span></li>
+                  <li><span className="check-icon standard" /><span>1 clase grupal semanal</span></li>
+                  <li><span className="check-icon standard" /><span>Wi-Fi en sala</span></li>
+                </ul>
+                <Button as={Link} to="/planes" className="btn-gradient">
+                  Empezar ahora
+                </Button>
+              </div>
+            </motion.div>
 
-          <div className="plan-horizontal standard-plus">
-            <div className="plan-info">
-              <h4>Standard+</h4>
-              <div className="precio">$29.900 / mes</div>
-            </div>
-            <div className="plan-detalle">
-              <ul>
-                <li><span className="check-icon standard-plus" />Acceso a máquinas libre</li>
-                <li><span className="check-icon standard-plus" />Vestuarios y lockers</li>
-                <li><span className="check-icon standard-plus" />1 clase grupal semanal</li>
-                <li><span className="check-icon standard-plus" />Wi-Fi en sala</li>
-                <li><span className="check-icon standard-plus" />1 consulta con entrenador mensual</li>
-              </ul>
-              <Button as={Link} to="/planes" variant="primary" size="sm">
-                Suscribirse
-              </Button>
-            </div>
-          </div>
+            <motion.div 
+              className="plan-horizontal standard-plus"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+            >
+              <div className="plan-info">
+                <h4>Standard+</h4>
+                <div className="precio">$29.900 <span className="periodo">/mes</span></div>
+                <small className="text-muted">Lo más popular</small>
+              </div>
+              <div className="plan-detalle">
+                <ul>
+                  <li><span className="check-icon standard-plus" /><span>Todo en Standard</span></li>
+                  <li><span className="check-icon standard-plus" /><span>+ 1 consulta mensual con entrenador</span></li>
+                  <li><span className="check-icon standard-plus" /><span>Acceso a app de seguimiento</span></li>
+                  <li><span className="check-icon standard-plus" /><span>Descuentos en suplementos</span></li>
+                </ul>
+                <Button as={Link} to="/planes" className="btn-gradient">
+                  Elegir este plan
+                </Button>
+              </div>
+            </motion.div>
 
-          <div className="plan-horizontal premium">
-            <div className="plan-info">
-              <h4>Premium</h4>
-              <div className="precio">$44.900 / mes</div>
-            </div>
-            <div className="plan-detalle">
-              <ul>
-                <li><span className="check-icon premium" />Acceso a máquinas libre</li>
-                <li><span className="check-icon premium" />Vestuarios y lockers</li>
-                <li><span className="check-icon premium" />2 clases grupales semanales</li>
-                <li><span className="check-icon premium" />Wi-Fi en sala</li>
-                <li><span className="check-icon premium" />1 consulta con entrenador mensual</li>
-                <li><span className="check-icon premium" />Clases limitadas</li>
-                <li><span className="check-icon premium" />Acceso a piscina, sauna</li>
-                <li><span className="check-icon premium" />Plan de entrenamiento personalizado</li>
-              </ul>
-              <Button as={Link} to="/planes" variant="primary" size="sm">
-                Suscribirse
-              </Button>
-            </div>
-          </div>
+            <motion.div 
+              className="plan-horizontal premium"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <div className="plan-info">
+                <h4>Premium</h4>
+                <div className="precio">$44.900 <span className="periodo">/mes</span></div>
+                <small className="text-muted">Para los más exigentes</small>
+              </div>
+              <div className="plan-detalle">
+                <ul>
+                  <li><span className="check-icon premium" /><span>Todo en Standard+</span></li>
+                  <li><span className="check-icon premium" /><span>Clases ilimitadas</span></li>
+                  <li><span className="check-icon premium" /><span>Acceso a piscina y sauna</span></li>
+                  <li><span className="check-icon premium" /><span>Plan de entrenamiento personalizado</span></li>
+                  <li><span className="check-icon premium" /><span>2 consultas mensuales con entrenador</span></li>
+                </ul>
+                <Button as={Link} to="/planes" className="btn-gradient">
+                  Elegir Premium
+                </Button>
+              </div>
+            </motion.div>
 
-          <div className="plan-horizontal gold">
-            <div className="plan-info">
-              <h4>Gold</h4>
-              <div className="precio">$69.900 / mes</div>
-            </div>
-            <div className="plan-detalle">
-              <ul>
-                <li><span className="check-icon gold" /> Acceso a máquinas libre</li>
-                <li><span className="check-icon gold" /> Vestuarios y lockers</li>
-                <li><span className="check-icon gold" /> 3 clases grupales semanales</li>
-                <li><span className="check-icon gold" /> Wi-Fi en sala</li>
-                <li><span className="check-icon gold" /> 2 consultas con entrenador mensual</li>
-                <li><span className="check-icon gold" /> Clases ilimitadas</li>
-                <li><span className="check-icon gold" /> Acceso a piscina y sauna</li>
-                <li><span className="check-icon gold" /> Plan de entrenamiento personalizado</li>
-                <li><span className="check-icon gold" /> Acceso VIP (prioridad en reservas)</li>
-              </ul>
-              <Button as={Link} to="/planes" variant="primary" size="sm">
-                Suscribirse
-              </Button>
-            </div>
+            <motion.div 
+              className="plan-horizontal gold"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              <div className="plan-info">
+                <h4>Gold</h4>
+                <div className="precio">$69.900 <span className="periodo">/mes</span></div>
+                <small className="text-muted">Experiencia VIP</small>
+              </div>
+              <div className="plan-detalle">
+                <ul>
+                  <li><span className="check-icon gold" /><span>Todo en Premium</span></li>
+                  <li><span className="check-icon gold" /><span>Acceso VIP 24/7</span></li>
+                  <li><span className="check-icon gold" /><span>Entrenador personal incluido</span></li>
+                  <li><span className="check-icon gold" /><span>Nutricionista 1 vez al mes</span></li>
+                  <li><span className="check-icon gold" /><span>Toalla y locker permanente</span></li>
+                  <li><span className="check-icon gold" /><span>Acceso a eventos exclusivos</span></li>
+                </ul>
+                <Button as={Link} to="/planes" className="btn-gradient">
+                  Ser VIP
+                </Button>
+              </div>
+            </motion.div>
           </div>
-        </div>
+          
+          <motion.div 
+            className="text-center mt-5"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.6 }}
+          >
+          </motion.div>
+        </Container>
       </section>
 
       <section className="landing-section horarios-v2">
@@ -251,6 +480,28 @@ export default function Inicio() {
         </div>
       </section>
 
-    </>
+      {/* Sección de CTA */}
+      <section className="py-5 bg-dark text-white text-center">
+        <Container>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <h2 className="display-5 fw-bold mb-4">¿Listo para transformar tu vida?</h2>
+            <p className="lead mb-4">Únete a nuestra comunidad fitness y comienza tu viaje hacia una vida más saludable hoy mismo.</p>
+            <div className="d-flex justify-content-center gap-3">
+              <Button as={Link} to="/registro" size="lg" className="btn-gradient px-4">
+                Comenzar ahora
+              </Button>
+              <Button as={Link} to="/contacto" variant="outline-light" size="lg" className="px-4">
+                Contáctanos
+              </Button>
+            </div>
+          </motion.div>
+        </Container>
+      </section>
+    </div>
   );
 }

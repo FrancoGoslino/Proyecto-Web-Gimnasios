@@ -1,69 +1,160 @@
- .brand-logo {
+ /* Estilos generales del Navbar */
+.navbar-floating {
+  padding: 1rem 0;
+  background: rgba(15, 20, 25, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-floating:hover {
+  background: rgba(15, 20, 30, 0.95) !important;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Logo de la marca */
+.brand-logo {
   font-weight: 800;
-  font-size: 1.5rem;
-  letter-spacing: 1px;
-  color: #00f0ff !important;
-  text-transform: uppercase;
+  font-size: 1.8rem;
+  letter-spacing: 1.5px;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.4s ease;
+  position: relative;
 }
 
 .brand-logo:hover {
-  color: #00ffff !important;
+  transform: translateY(-2px);
+  text-shadow: 0 4px 15px rgba(79, 172, 254, 0.3);
 }
 
- 
+/* Enlaces de navegación */
 .nav-link-custom,
 .btn-nav-login {
-  background: rgba(54, 54, 54, 0.502);
-  color: #ffffff !important;
-  border-radius: 999px;
-  padding: 10px 18px;
+  color: #e0e0e0 !important;
+  border-radius: 8px;
+  padding: 0.6rem 1.2rem;
+  margin: 0 0.3rem;
   font-weight: 600;
   font-size: 0.95rem;
-  letter-spacing: 0.3px;
-  border: none;
+  letter-spacing: 0.5px;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  backdrop-filter: blur(4px);
+  background: transparent;
+  border: 1px solid transparent;
 }
 
- .nav-link-custom:hover,
+.nav-link-custom::before,
+.btn-nav-login::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link-custom:hover,
 .btn-nav-login:hover {
-  background: rgba(0, 195, 255, 0.2);
   color: #ffffff !important;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 195, 255, 0.3);
+  background: rgba(255, 255, 255, 0.05);
 }
 
- .navbar-nav .nav-link-custom.active,
-.btn-nav-login.active {
-  background: linear-gradient(135deg, #00c3ff, #0077ff);
-  color: #fff !important;
-  box-shadow: 0 0 16px rgba(0, 195, 255, 0.5);
+.nav-link-custom:hover::before,
+.btn-nav-login:hover::before {
+  width: 70%;
 }
- 
+
+/* Estado activo de los enlaces */
+.navbar-nav .nav-link-custom.active,
+.btn-nav-login.active {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  color: #1a1a1a !important;
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-nav .nav-link-custom.active::before,
+.btn-nav-login.active::before {
+  display: none;
+}
+
+/* Botón de menú móvil */
+.navbar-toggler-custom {
+  border: none;
+  padding: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-custom:focus {
+  box-shadow: 0 0 0 2px rgba(79, 172, 254, 0.3);
+  outline: none;
+}
+
+.navbar-toggler-custom .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Avatar de perfil */
 .profile-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-   display: flex;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #ffffff;
-  transition: background 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-left: 0.5rem;
 }
 
 .profile-avatar:hover {
-  background: rgba(0, 195, 255, 0.2);
-  transform: scale(1.1);
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 242, 254, 0.3);
+  color: #1a1a1a;
 }
 
 .profile-avatar.active {
-  background: linear-gradient(135deg, #00c3ff, #0077ff);
-  box-shadow: 0 0 14px rgba(0, 195, 255, 0.5);
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  box-shadow: 0 4px 15px rgba(0, 242, 254, 0.4);
+  color: #1a1a1a;
+}
+
+/* Efecto de transición suave para el menú colapsable */
+.navbar-collapse {
+  transition: all 0.4s ease-in-out;
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding: 1rem 0;
+    gap: 0.5rem;
+  }
+  
+  .nav-link-custom,
+  .btn-nav-login {
+    margin: 0.2rem 0;
+    text-align: center;
+    border-radius: 8px;
+  }
+  
+  .profile-avatar {
+    margin: 0.5rem auto;
+    display: flex;
+  }
 }
