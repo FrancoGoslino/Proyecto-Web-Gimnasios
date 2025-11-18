@@ -162,8 +162,6 @@ export default function Inicio() {
       />
 
       <div className="position-relative">
-        // ... (código anterior)
-
       <Carousel 
         fade 
         activeIndex={index} 
