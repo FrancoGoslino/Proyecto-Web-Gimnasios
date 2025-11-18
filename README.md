@@ -4,7 +4,19 @@
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.4.0-646CFF?logo=vite)](https://vitejs.dev/)
 
-Plataforma web moderna para la gestión de gimnasios que permite a los usuarios ver clases, máquinas disponibles y planes de membresía.
+## 📋 Descripción del Proyecto
+
+P-Gym es una plataforma web moderna diseñada para revolucionar la gestión de gimnasios, ofreciendo una experiencia intuitiva tanto para los administradores como para los usuarios. Con un diseño responsivo y una interfaz amigable, P-Gym facilita la administración de clases, seguimiento de máquinas disponibles y gestión de membresías.
+
+### 🎯 Objetivos Principales
+- **Para Usuarios**: Acceso fácil a información de clases, reservas y seguimiento de progreso.
+- **Para Administradores**: Herramientas completas para la gestión de instalaciones, horarios y membresías.
+- **Tecnológico**: Implementar las mejores prácticas de desarrollo web moderno con React y Vite.
+
+### ✨ Beneficios Clave
+- **Ahorro de Tiempo**: Gestión centralizada de todas las operaciones del gimnasio.
+- **Accesibilidad**: Interfaz intuitiva disponible en cualquier dispositivo.
+- **Escalable**: Arquitectura modular que permite crecer con las necesidades del negocio.
 
 ## 🚀 Características
 
@@ -36,25 +48,25 @@ Plataforma web moderna para la gestión de gimnasios que permite a los usuarios 
    cd P-Gym
 
 2. Instala las dependencias
-bash
-npm install
-# o
-yarn
+   ```bash
+   npm install
+   # o
+   yarn
 
 3. Inicia el servidor de desarrollo
-bash
-npm run dev
-# o
-yarn dev
+   ```bash
+   npm run dev
+   # o
+   yarn dev
 
 4. Abre http://localhost:5173 en tu navegador
 📂 Estructura del Proyecto
 src/
-├── components/     # Componentes reutilizables
-├── contexts/       # Contextos de React
-├── data/           # Datos iniciales
-├── pages/          # Componentes de página
-└── styles/         # Estilos CSS
+   ├── components/     # Componentes reutilizables
+   ├── contexts/       # Contextos de React
+   ├── data/           # Datos iniciales
+   ├── pages/          # Componentes de página
+   └── styles/         # Estilos CSS
 
 🤝 Contribución
 Las contribuciones son bienvenidas. Por favor, lee las pautas de contribución antes de enviar un pull request.
