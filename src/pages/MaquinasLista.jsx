@@ -33,30 +33,44 @@ export default function MaquinasLista() {
   return (
     <Container className='Maquinas-page'>
       <ScrollToTop />
-      <h1 className='text-light mb-4'>Máquinas disponibles</h1>
+      <h1 className='display-4 fw-bold text-light mb-3'>Máquinas disponibles</h1>
 
-      <div className="mb-4 d-flex gap-2 flex-column flex-md-row align-items-start">
-        <InputGroup style={{ maxWidth: 420 }}>
-          <Form.Control
-            placeholder="Buscar máquina, músculo o característica..."
-            value={q}
-            onChange={e => setQ(e.target.value)}
-            aria-label="Buscar máquinas"
-          />
-          <Button variant="outline-light" onClick={() => setQ('')}>Limpiar</Button>
-        </InputGroup>
+      <div className="filters-container mb-4">
+        <div className="search-container">
+          <div className="search-box">
+            <i className="bi bi-search"></i>
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Buscar máquina, músculo o característica..."
+              value={q}
+              onChange={e => setQ(e.target.value)}
+              aria-label="Buscar máquinas"
+            />
+            {q && (
+              <button className="clear-btn" onClick={() => setQ('')}>
+                <i className="bi bi-x-lg"></i>
+              </button>
+            )}
+          </div>
 
-        <Form.Select
-          value={categoria}
-          onChange={e => setCategoria(e.target.value)}
-          style={{ width: 220 }}
-          aria-label="Filtrar por categoría"
-        >
-          {categorias.map(cat => <option key={cat} value={cat}>{cat}</option>)}
-        </Form.Select>
+          <div className="filter-selector">
+            <i className="bi bi-funnel"></i>
+            <select
+              className="category-select"
+              value={categoria}
+              onChange={e => setCategoria(e.target.value)}
+              aria-label="Filtrar por categoría"
+            >
+              {categorias.map(cat => (
+                <option key={cat} value={cat}>{cat}</option>
+              ))}
+            </select>
+          </div>
 
-        <div className="text-muted small ms-auto">
-          {maquinasFiltradas.length} resultado{maquinasFiltradas.length !== 1 ? 's' : ''}
+          <div className="results-count">
+            {maquinasFiltradas.length} {maquinasFiltradas.length === 1 ? 'resultado' : 'resultados'}
+          </div>
         </div>
       </div>
 

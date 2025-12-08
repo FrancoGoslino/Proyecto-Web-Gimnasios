@@ -327,6 +327,30 @@ li:hover .check-icon {
   box-shadow: 0 6px 18px rgba(0,0,0,0.4);
 }
 
+.sede-card {
+  cursor: pointer;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sede-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.sede-activa {
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.3) !important;
+}
+
+.sede-activa h4 {
+  color: #0ea5e9;
+}
+
+
+
 @media (max-width: 768px) {
   .mapa-grid {
     grid-template-columns: 1fr;

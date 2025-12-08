@@ -1,0 +1,258 @@
+:root {
+  --card-bg-dark: linear-gradient(180deg, rgba(10,11,13,0.95), rgba(18,18,20,0.95));
+  --card-fg-dark: #e6eef6;
+  --muted-dark: rgba(230,238,246,0.62);
+  --accent-dark: #0ea5e9;
+  --glass-dark: rgba(255,255,255,0.03);
+  --shadow-dark: 0 14px 36px rgba(0,0,0,0.6);
+  --radius: 14px;
+}
+
+/* Contenedor principal */
+.ejercicios-container {
+  padding: 5rem 1rem;
+  min-height: calc(100vh - 56px);
+  color: var(--card-fg-dark);
+   
+}
+
+/* Formularios */
+.form-control, 
+.form-select {
+  background-color: rgba(28, 28, 28, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e6eef6;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.form-control:focus, 
+.form-select:focus {
+  background-color: rgba(28, 28, 28, 0.9);
+  border-color: #0ea5e9;
+  box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.25);
+  color: #e6eef6;
+  outline: none;
+}
+
+/* Estilo específico para el select */
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23e6eef6' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 16px 12px;
+  padding-right: 2.5rem;
+}
+
+/* Estilo para las opciones del select */
+.form-select option {
+  background: #1c1c1c;
+  color: #e6eef6;
+  padding: 0.5rem;
+}
+
+/* Estilo para el hover de las opciones */
+.form-select option:hover {
+  background: #2a2a2a;
+}
+
+/* Placeholder para inputs */
+.form-control::placeholder {
+  color: rgba(230, 238, 246, 0.5);
+}
+
+/* Título de la página */
+.ejercicios-title {
+  color: var(--card-fg-dark);
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+/* Tarjetas de ejercicio */
+.exercise-card {
+  background: var(--card-bg-dark);
+  color: var(--card-fg-dark);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: var(--shadow-dark);
+  transition: transform .18s cubic-bezier(.2,.9,.3,1), box-shadow .18s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 380px;
+}
+
+.exercise-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0px 23px #0ea4e9f9;
+}
+
+/* Contenedor de imagen */
+.exercise-image-container {
+  position: relative;
+  width: 100%;
+  height: 190px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01));
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.02);
+}
+
+.exercise-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center;
+  transition: transform .35s ease, filter .25s ease;
+  filter: contrast(0.98) saturate(0.95) brightness(0.9);
+}
+
+.exercise-card:hover .exercise-img {
+  transform: scale(1.06);
+  filter: contrast(1.03) saturate(1.05) brightness(0.98);
+}
+
+/* Cuerpo de la tarjeta */
+.exercise-card .card-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 12px;
+}
+
+/* Título del ejercicio */
+.exercise-card .card-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--card-fg-dark);
+}
+
+/* Badges */
+.exercise-card .badge {
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  margin-right: 6px;
+  margin-bottom: 6px;
+  border: none;
+}
+
+/* Colores para los badges de dificultad */
+.bg-success { background: linear-gradient(90deg, #10b981, #059669) !important; }
+.bg-warning { background: linear-gradient(90deg, #f59e0b, #d97706) !important; }
+.bg-danger { background: linear-gradient(90deg, #ef4444, #dc2626) !important; }
+.bg-secondary { background: rgba(255,255,255,0.08) !important; }
+.bg-purple { background: linear-gradient(90deg, #8b5cf6, #7c3aed) !important; }
+.bg-info { background: linear-gradient(90deg, #0ea5e9, #0284c7) !important; }
+.bg-dark { background: linear-gradient(90deg, #4b5563, #374151) !important; }
+
+/* Instrucciones */
+.exercise-instructions {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+.exercise-instructions h6 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--muted-dark);
+}
+
+.exercise-instructions p {
+  font-size: 0.85rem;
+  color: var(--muted-dark);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Filtros */
+.filters-container {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.form-control, .form-select {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--card-fg-dark);
+}
+
+.form-control:focus, .form-select:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-color: var(--accent-dark);
+  box-shadow: 0 0 0 0.25rem rgba(14, 165, 233, 0.25);
+  color: var(--card-fg-dark);
+}
+
+/* Paginación */
+.pagination {
+  margin: 2rem 0 0;
+  justify-content: center;
+}
+
+.page-link {
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--card-fg-dark);
+  margin: 0 4px;
+  border-radius: 8px !important;
+}
+
+.page-item.active .page-link {
+  background: linear-gradient(90deg, var(--accent-dark), #0d8fd9);
+  border-color: transparent;
+}
+
+.page-link:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+
+/* Mensaje de carga */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--muted-dark);
+}
+
+/* Sin resultados */
+.no-results {
+  text-align: center;
+  padding: 3rem;
+  color: var(--muted-dark);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .exercise-card {
+    min-height: 360px;
+  }
+  
+  .exercise-image-container {
+    height: 160px;
+  }
+  
+  .filters-container {
+    padding: 1rem;
+  }
+  
+  .ejercicios-container {
+    padding: 3rem 0.5rem;
+  }
+}

@@ -6,6 +6,7 @@ import { ClassesProvider } from './contexts/ClassesContext';
 import AuthProvider from './contexts/AuthContext';
 import { useAuth } from './contexts/AuthContext';
 import ProtectedRoute from './contexts/ProtectedRoute';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Inicio from '@pages/Inicio';
 import Login from '@pages/Login';
@@ -18,6 +19,7 @@ import Perfil from '@pages/Perfil';
 import MisInscripciones from '@pages/MisInscripciones';
 import Menu from '@components/Menu';
 import CrearCuenta from '@pages/CrearCuenta';
+import Ejercicios from '@pages/Ejercicios';
 
 import './App.css';
 
@@ -48,7 +50,14 @@ export default function App() {
                       </Container>
                     }
                   />
-                
+                <Route 
+                  path="/ejercicios" 
+                  element={
+                    <Container>
+                      <Ejercicios />
+                    </Container>
+                  } 
+                />
                 <Route
                   path="/clases"
                   element={

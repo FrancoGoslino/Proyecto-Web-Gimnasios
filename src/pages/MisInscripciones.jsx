@@ -19,7 +19,7 @@ const misClases = (clases || []).filter(c => inscripciones.includes(c.ID));
   return (
     <Container style={{ padding:"5rem" }}>
       <ScrollToTop />
-      <h1 className="text-light mb-5">Tus Inscripciones</h1>
+      <h1 className="display-4 fw-bold text-light mb-3">Tus Inscripciones</h1>
 
       {misClases.length === 0 ? (
         <Card className="bg-dark text-light p-4 empty-card">

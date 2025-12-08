@@ -131,7 +131,7 @@ export default function PlanesLista() {
     
     <Container className='Planes-page'>
       <ScrollToTop />
-      <h1 className="text-light mb-3">Planes</h1>
+      <h1 className="display-4 fw-bold text-light mb-3">Planes</h1>
 
       {mensaje && (
         <Alert variant={mensaje.tipo} dismissible onClose={() => setMensaje(null)}>

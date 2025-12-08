@@ -45,6 +45,11 @@ export default function Menu() {
             >
               Máquinas
             </Nav.Link>
+            <Nav.Link as={Link} to="/ejercicios"
+              className={`nav-link-custom ${isActive('/ejercicios') ? 'active' : ''}`}
+            >
+              Ejercicios
+            </Nav.Link>
             {isLoggedIn && (
               <Nav.Link as={Link} to="/MisInscripciones"
                 className={`nav-link-custom ${isActive('/MisInscripciones') ? 'active' : ''}`}

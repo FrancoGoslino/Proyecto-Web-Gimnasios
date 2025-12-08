@@ -16,6 +16,39 @@ import '../styles/landing.css';
 import '../styles/carousel-styles.css';
 
 export default function Inicio() {
+  const [ubicacionSeleccionada, setUbicacionSeleccionada] = useState({
+    nombre: "Sucursal Central",
+    direccion: "Av. Principal 1234, CABA",
+    coordenadas: "!1m18!1m12!1m3!1d3282.123!2d-58.45!3d-34.61!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000000"
+  });
+
+  const sedes = [
+        {
+          nombre: "Sucursal Central",
+          direccion: "Av. Principal 1234, CABA",
+          coordenadas: "!1m18!1m12!1m3!1d3282.123!2d-58.45!3d-34.61!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000000"
+        },
+        {
+          nombre: "Sede Palermo",
+          direccion: "Godoy Cruz 2345, CABA",
+          coordenadas: "!1m18!1m12!1m3!1d3284.0!2d-58.43!3d-34.59!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000001"
+        },
+        {
+          nombre: "Sede Belgrano",
+          direccion: "Av. Cabildo 4567, CABA",
+          coordenadas: "!1m18!1m12!1m3!1d3283.0!2d-58.46!3d-34.56!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000002"
+        },
+        {
+          nombre: "Sede San Telmo",
+          direccion: "Defensa 789, CABA",
+          coordenadas: "!1m18!1m12!1m3!1d3282.5!2d-58.37!3d-34.62!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000003"
+        }
+      ];
+
+  const seleccionarSede = (sede) => {
+    setUbicacionSeleccionada(sede);
+  };
+
   const slides = [
     {
       id: 1,
@@ -443,31 +476,26 @@ export default function Inicio() {
         </div>
       </section>
 
+      {/* Sección de Maps */}
       <section className="landing-section mapa-v2">
         <h2 className="section-title">Nuestras sedes</h2>
         <div className="mapa-grid">
           <div className="sede-lista">
-            <div className="sede-card">
-              <h4>Sucursal Central</h4>
-              <p>Av. Principal 1234, CABA</p>
-            </div>
-            <div className="sede-card">
-              <h4>Sede Palermo</h4>
-              <p>Godoy Cruz 2345, CABA</p>
-            </div>
-            <div className="sede-card">
-              <h4>Sede Belgrano</h4>
-              <p>Av. Cabildo 4567, CABA</p>
-            </div>
-            <div className="sede-card">
-              <h4>Sede San Telmo</h4>
-              <p>Defensa 789, CABA</p>
-            </div>
+            {sedes.map((sede, index) => (
+              <div 
+                key={index}
+                className={`sede-card ${ubicacionSeleccionada.nombre === sede.nombre ? 'sede-activa' : ''}`}
+                onClick={() => seleccionarSede(sede)}
+              >
+                <h4>{sede.nombre}</h4>
+                <p>{sede.direccion}</p>
+              </div>
+            ))}
           </div>
           <div className="mapa-frame">
             <iframe
               title="Mapa P.Gym"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3282.123!2d-58.45!3d-34.61!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sP.Gym!5e0!3m2!1ses!2sar!4v1600000000000"
+              src={`https://www.google.com/maps/embed?pb=${ubicacionSeleccionada.coordenadas}`}
               width="100%"
               height="100%"
               style={{ border: 0 }}
@@ -479,7 +507,7 @@ export default function Inicio() {
       </section>
 
       {/* Sección de CTA */}
-      <section className="py-5 bg-dark text-white text-center">
+      <section className="py-5 text-white text-center">
         <Container>
           <motion.div
             initial={{ opacity: 0, y: 20 }}

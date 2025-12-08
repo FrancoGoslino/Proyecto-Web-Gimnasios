@@ -1,0 +1,249 @@
+/* Tarjeta de clase */
+.clase-card {
+  border: 1px solid #2a2a2a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  height: 100%;
+  background: #1e1e1e;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+ /* Página de Clases */
+.clases-page {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+/* Contenedor de filtros */
+.filtros-container {
+  background: rgba(30, 30, 30, 0.8);
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  margin-bottom: 2rem;
+}
+
+/* Filtros */
+.clases-filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.clase-filtro-btn {
+  background: transparent;
+  border: 1px solid #3bb7ff;
+  color: #3bb7ff;
+  padding: 0.5rem 1.25rem;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  text-transform: capitalize;
+  font-size: 0.9rem;
+}
+
+.clase-filtro-btn:hover,
+.clase-filtro-btn.active {
+  background: linear-gradient(90deg, #3bb7ff, #007bff);
+  border-color: transparent;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(59, 183, 255, 0.3);
+}
+
+/* Información de inscripciones */
+.inscripciones-info {
+  background: rgba(30, 30, 30, 0.8);
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #2a2a2a;
+  margin-bottom: 2rem;
+}
+
+/* Mensajes de alerta */
+.alert {
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clases-page {
+    padding: 1rem 0;
+  }
+  
+  .filtros-container,
+  .inscripciones-info {
+    padding: 1rem;
+  }
+  
+  .clases-filtros {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .clase-filtro-btn {
+    white-space: nowrap;
+  }
+}
+.clase-nombre {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.clase-categoria {
+  color: #6c757d;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.clase-duracion .badge {
+  background: linear-gradient(90deg, #3bb7ff, #007bff);
+  font-weight: 500;
+  font-size: 0.8rem;
+  padding: 0.35em 0.65em;
+}
+
+.clase-descripcion {
+  color: #adb5bd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 1rem 0;
+  flex-grow: 1;
+}
+
+/* Información de la clase */
+.clase-info {
+  background: rgba(59, 183, 255, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+
+.clase-info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.clase-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.clase-info-label {
+  color: #6c757d;
+  font-weight: 500;
+}
+
+.clase-info-value {
+  color: #fff;
+  font-weight: 500;
+}
+
+/* Botones */
+.btn-inscribirse {
+  background: linear-gradient(90deg, #3bb7ff, #007bff);
+  border: none;
+  color: white;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.btn-inscribirse:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+  color: white;
+}
+
+.btn-inscribirse:disabled {
+  background: #6c757d;
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-cancelar {
+  background: transparent;
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  font-weight: 500;
+  padding: 0.6rem 1.25rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  width: 100%;
+}
+
+.btn-cancelar:hover {
+  background: #dc3545;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+}
+
+/* Estado de clase llena */
+.clase-llena {
+  position: relative;
+  opacity: 0.9;
+}
+
+.clase-llena::after {
+  content: 'COMPLETO';
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #dc3545;
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .clase-card {
+    margin-bottom: 1.5rem;
+  }
+  
+  .clase-info-item {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .clase-info-value {
+    text-align: right;
+  }
+}
