@@ -3,6 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![React](https://img.shields.io/badge/React-18.2.0-61DAFB?logo=react)](https://reactjs.org/)
 [![Vite](https://img.shields.io/badge/Vite-4.4.0-646CFF?logo=vite)](https://vitejs.dev/)
+[![API](https://img.shields.io/badge/API-Ninja_Exercises-00A67E?logo=api)](https://api-ninjas.com/api/exercises)
 
 ## 📋 Descripción del Proyecto
 
@@ -20,32 +21,38 @@ P-Gym es una plataforma web moderna diseñada para revolucionar la gestión de g
 
 ## 🚀 Características
 
-- Visualización de clases disponibles
-- Catálogo de máquinas del gimnasio
-- Gestión de planes de membresía
-- Sistema de perfil de usuario
-- Interfaz responsiva y moderna
+- 📋 Visualización de clases disponibles
+- 💪 Catálogo de ejercicios con búsqueda avanzada
+- 🏋️‍♂️ Información detallada de máquinas del gimnasio
+- 🔍 Sistema de búsqueda y filtrado intuitivo
+- 🎨 Interfaz moderna con tema oscuro
+- 📱 Diseño completamente responsivo
+- ⚡ Integración con API de ejercicios
 
 ## 🛠️ Tecnologías
 
 - **Frontend**: React 18, Vite 4
-- **Estilos**: CSS Modules
-- **Gestión de Estado**: React Context API
-- **Enrutamiento**: React Router
+- **Estilos**: CSS Modules, Variables CSS
+- **Gestión de Estado**: React Hooks, Context API
+- **Enrutamiento**: React Router v6
+- **API**: Ninja Exercises API
 - **Bundler**: Vite
+- **Iconos**: Bootstrap Icons
+- **Componentes UI**: Bootstrap 5
 
 ## 🚀 Cómo comenzar
 
 ### Requisitos previos
 - Node.js 16+
 - npm 8+ o yarn 1.22+
+- Clave de API de [Ninja API](https://api-ninjas.com/api/exercises)
 
 ### Instalación
 
 1. Clona el repositorio
    ```bash
-   git clone [https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git](https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git)
-   cd P-Gym
+   git clone https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios.git
+   cd Proyecto-Web-Gimnasios
 
 2. Instala las dependencias
    ```bash
@@ -53,13 +60,20 @@ P-Gym es una plataforma web moderna diseñada para revolucionar la gestión de g
    # o
    yarn
 
-3. Inicia el servidor de desarrollo
+3. Configura las variables de entorno
+   - Crea un archivo `.env` en la raíz del proyecto
+   - Agrega tu API key:
+     ```
+     VITE_API_KEY=tu_api_key_aquí
+     ```
+
+4. Inicia el servidor de desarrollo
    ```bash
    npm run dev
    # o
    yarn dev
 
-4. Abre http://localhost:5173 en tu navegador
+5. Abre http://localhost:5173 en tu navegador
 📂 Estructura del Proyecto
 src/
    ├── components/     # Componentes reutilizables
@@ -68,30 +82,63 @@ src/
    ├── pages/          # Componentes de página
    └── styles/         # Estilos CSS
 
-🤝 Contribución
-Las contribuciones son bienvenidas. Por favor, lee las pautas de contribución antes de enviar un pull request.
+## 🆕 Novedades
 
-📄 Licencia
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
+### Últimas Actualizaciones
+- ✅ Integración con Ninja Exercises API
+- 🎨 Rediseño completo de las tarjetas de ejercicios
+- 🔍 Sistema de búsqueda y filtrado mejorado
+- 📱 Mejoras en la experiencia móvil
+- 🎯 Optimización de rendimiento
 
-✉️ Contacto
-Franco Goslino - @FrancoGoslino 
+## 🧩 Características Técnicas
 
-Enlace al proyecto: https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios
+### Ejercicios
+- Búsqueda por nombre, tipo y grupo muscular
+- Filtrado por dificultad y categoría
+- Paginación de resultados
+- Diseño de tarjetas con información detallada
 
-# React + Vite
+### Máquinas
+- Catálogo completo de equipamiento
+- Información detallada por máquina
+- Sistema de búsqueda integrado
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🤝 Contribución
 
-Currently, two official plugins are available:
+¡Las contribuciones son bienvenidas! Sigue estos pasos:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Haz un fork del proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -m 'Añadir nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
 
-## React Compiler
+## 📄 Licencia
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
 
-## Expanding the ESLint configuration
+## ✉️ Contacto
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Franco Goslino - [@FrancoGoslino](https://github.com/FrancoGoslino)
+
+🔗 Enlace al proyecto: [https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios](https://github.com/FrancoGoslino/Proyecto-Web-Gimnasios)
+
+## 📚 Recursos Adicionales
+
+- [Documentación de React](https://react.dev/)
+- [Documentación de Vite](https://vitejs.dev/guide/)
+- [Ninja Exercises API](https://api-ninjas.com/api/exercises)
+- [Bootstrap 5](https://getbootstrap.com/)
+
+## 📊 Estructura del Proyecto
+
+```
+src/
+├── components/    # Componentes reutilizables
+├── contexts/      # Contextos de React
+├── pages/         # Componentes de página
+├── services/      # Lógica de servicios y APIs
+├── styles/        # Estilos globales
+└── utils/         # Utilidades y helpers
+```
