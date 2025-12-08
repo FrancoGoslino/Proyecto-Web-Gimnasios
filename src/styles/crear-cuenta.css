@@ -1,0 +1,172 @@
+/* crear-cuenta.css - Estilos para la página de creación de cuenta */
+
+.crear-cuenta-page {
+  padding: 5rem;
+}
+
+.crear-cuenta-wrapper {
+  width: 100%;
+  max-width: 800px;
+  padding: 12px;
+}
+
+.crear-cuenta-card {
+  background: linear-gradient(380deg, rgba(18,18,18,0.95), rgba(1, 114, 252, 0.076));
+  border: 1px solid rgba(255,255,255,0.04);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  color: var(--bs-light);
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.crear-cuenta-card-header {
+  background: linear-gradient(90deg, rgba(0,123,255,0.08), rgba(0,200,255,0.03));
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+
+.crear-cuenta-title {
+  margin: 0;
+  color: var(--bs-light);
+  font-weight: 600;
+  font-size: 1.75rem;
+}
+
+.crear-cuenta-subtitle {
+  margin: 4px 0 0 0;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.95rem;
+}
+
+.crear-cuenta-card .form-label {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.crear-cuenta-card .form-control {
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 12px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02) !important;
+  color: var(--bs-light);
+  transition: all 0.2s ease;
+}
+
+.crear-cuenta-card .form-control:focus {
+  border-color: rgba(0, 123, 255, 0.4);
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+.crear-cuenta-card .form-control::placeholder {
+  color: rgba(255,255,255,0.38);
+}
+
+.crear-cuenta-card-footer {
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,0.02);
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.crear-cuenta-card .btn-primary {
+  padding: 10px 14px;
+  font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0, 123, 255, 0.12);
+  border: none;
+  background: linear-gradient(90deg, #007bff, #0056b3);
+  transition: all 0.3s ease;
+}
+
+.crear-cuenta-card .btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.2);
+}
+
+.crear-cuenta-card .btn-primary:disabled {
+  background: #6c757d;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Estilos para los íconos */
+.form-icon {
+  margin-right: 8px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* Términos y condiciones */
+.terms-text {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+}
+
+.terms-text a {
+  color: #7be2ff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.terms-text a:hover {
+  color: #3bb7ff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .crear-cuenta-wrapper {
+    padding: 8px;
+  }
+  
+  .crear-cuenta-card-header {
+    padding: 16px;
+  }
+  
+  .crear-cuenta-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para los mensajes de error */
+.error-message {
+  color: #ff6b6b;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+/* Estilo para el checkbox de términos */
+.form-check-input:checked {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.form-check-input:focus {
+  box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+}
+
+/* Estilo para los grupos de formulario */
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+/* Ajustes para los inputs de contraseña */
+.password-field {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 5px;
+}
+
+.password-toggle:hover {
+  color: #fff;
+}

@@ -236,7 +236,7 @@ export default function Inicio() {
               <div className="text">
                 <h4>Entrenamiento Libre</h4>
                 <p>Acceso ilimitado a nuestra amplia gama de equipos de última generación, zona funcional y área de cardio.</p>
-                <Button variant="outline-light" size="sm" className="mt-2">
+                <Button variant="outline-light" size="sm" className="mt-2" href='/maquinas'>
                   Ver instalaciones <FaArrowRight className="ms-1" />
                 </Button>
               </div>
@@ -257,7 +257,7 @@ export default function Inicio() {
               <div className="text">
                 <h4>Clases Guiadas</h4>
                 <p>Más de 20 clases semanales con instructores certificados. Desde HIIT hasta yoga, tenemos algo para todos.</p>
-                <Button variant="outline-light" size="sm" className="mt-2">
+                <Button variant="outline-light" size="sm" className="mt-2" href='/clases'>
                   Ver clases <FaArrowRight className="ms-1" />
                 </Button>
               </div>
@@ -278,7 +278,7 @@ export default function Inicio() {
               <div className="text">
                 <h4>Entrenamiento Personalizado</h4>
                 <p>Planes de entrenamiento personalizados con nuestros entrenadores expertos para alcanzar tus metas más rápido.</p>
-                <Button variant="outline-light" size="sm" className="mt-2">
+                <Button variant="outline-light" size="sm" className="mt-2" href="/planes">
                   Conoce más <FaArrowRight className="ms-1" />
                 </Button>
               </div>

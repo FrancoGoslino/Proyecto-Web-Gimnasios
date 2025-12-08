@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { useAuth } from './AuthContext'; // o '@contexts/AuthContext' si usás alias
+import { useAuth } from './AuthContext';
 
 export default function ProtectedRoute({ redirectTo = '/login' }) {
   const { isLoggedIn } = useAuth();

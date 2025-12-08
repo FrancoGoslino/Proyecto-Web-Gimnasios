@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@contexts/AuthContext';
 import { useLocation } from 'react-router-dom';
 
@@ -53,7 +53,7 @@ export default function Login() {
   };
 
   return (
-    <main className="login-page">
+    <main style={{ padding:"5rem" }} className="login-page">
       <section className="login-wrapper">
         <Card className="login-card">
           <ScrollToTop />
@@ -115,12 +115,12 @@ export default function Login() {
               </div>
             </Form>
           </Card.Body>
-
           <Card.Footer className="login-card-footer">
-            <small className="">¿No tenés cuenta? <a href="/register">Crear cuenta</a></small>
+            <small className="">¿No tenés cuenta? <Link to="/crear-cuenta" className="text-primary">Crear cuenta</Link></small>
           </Card.Footer>
         </Card>
-        {/* Promo estático debajo del login */}
+        
+        {/* Promociones */}
         <section className="login-promo mt-4">
         <div className="promo-grid">
             <article className="promo-card">

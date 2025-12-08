@@ -17,6 +17,7 @@ import Footer from './pages/Footer';
 import Perfil from '@pages/Perfil';
 import MisInscripciones from '@pages/MisInscripciones';
 import Menu from '@components/Menu';
+import CrearCuenta from '@pages/CrearCuenta';
 
 import './App.css';
 
@@ -38,6 +39,16 @@ export default function App() {
                     </Container>
                   }
                 />
+                
+                  <Route
+                    path="/crear-cuenta"
+                    element = {
+                      <Container>
+                        <CrearCuenta />
+                      </Container>
+                    }
+                  />
+                
                 <Route
                   path="/clases"
                   element={
